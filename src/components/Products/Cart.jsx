@@ -61,11 +61,11 @@ const Cart = ({ cart, onRemoveFromCart }) => {
           <div className="row">
             <div className="col-md-8">
               {cart.map((item) => (
-                <div key={item._id} className="card mb-3">
+                <div key={item.productId} className="card mb-3">
                   <div className="row g-0">
                     <div className="col-md-4">
                       <img
-                        src={item.imageUrl}
+                        src={item.image}
                         alt={item.name}
                         className="img-fluid rounded-start cart-image"
                       />
@@ -77,7 +77,7 @@ const Cart = ({ cart, onRemoveFromCart }) => {
                         <p className="card-text">Quantity: {item.quantity}</p>
                         <button
                           className="btn btn-danger"
-                          onClick={() => handleRemoveFromCart(item._id)}
+                          onClick={() => handleRemoveFromCart(item.productId)}
                           disabled={isLoading}
                         >
                           {isLoading ? 'Removing...' : 'Remove'}

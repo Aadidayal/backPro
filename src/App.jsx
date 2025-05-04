@@ -33,7 +33,7 @@ const AppContent = () => {
         _id: product._id,
         name: product.name,
         price: product.price,
-        imageUrl: product.imageUrl,
+        imageUrl: product.image,
         quantity: product.quantity || 1
       }, {
         headers: { Authorization: `Bearer ${token}` }
@@ -48,6 +48,8 @@ const AppContent = () => {
       console.error('Error adding to cart:', error);
       if (error.response?.status === 401) {
         setShowAuthModal(true);
+      } else if (error.response?.status === 500) {
+        alert('Internal Server Error. Please try again later.');
       } else if (error.response?.data?.message) {
         alert(error.response.data.message);
       } else {
@@ -69,16 +71,8 @@ const AppContent = () => {
 
       // Update local state with the updated cart from the backend
       setCart(response.data.items);
-      
-      // Show success message
-      alert('Item removed from cart successfully!');
     } catch (error) {
       console.error('Error removing item from cart:', error);
-      if (error.response?.data?.message) {
-        alert(error.response.data.message);
-      } else {
-        alert('Failed to remove item from cart. Please try again.');
-      }
     }
   };
 

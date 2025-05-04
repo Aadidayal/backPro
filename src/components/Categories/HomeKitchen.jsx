@@ -7,57 +7,57 @@ const HomeKitchen = ({ onAddToCart }) => {
   const homeKitchenProducts = [
     { 
       _id: '1', 
-      name: 'Premium Non-Stick Cookware Set', 
-      price: 2499, 
+      name: 'Non-Stick Cookware Set', 
+      price: 2999, 
       originalPrice: 3999, 
-      discount: 38, 
-      imageUrl: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3',
-      category: 'HomeKitchen'
+      discount: 25, 
+      image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3',
+      category: 'Home & Kitchen'
     },
     { 
       _id: '2', 
-      name: 'Stainless Steel Mixing Bowls Set', 
-      price: 899, 
-      originalPrice: 1499, 
-      discount: 40, 
-      imageUrl: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3',
-      category: 'HomeKitchen'
+      name: 'Air Fryer', 
+      price: 3999, 
+      originalPrice: 4999, 
+      discount: 20, 
+      image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3',
+      category: 'Home & Kitchen'
     },
     { 
       _id: '3', 
-      name: 'Electric Kettle with Temperature Control', 
+      name: 'Coffee Maker', 
       price: 1999, 
       originalPrice: 2999, 
       discount: 33, 
-      imageUrl: 'https://images.unsplash.com/photo-1608039829574-327d29c5d5c8?ixlib=rb-4.0.3',
-      category: 'HomeKitchen'
+      image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3',
+      category: 'Home & Kitchen'
     },
     { 
       _id: '4', 
-      name: 'Ceramic Dinnerware Set', 
-      price: 1799, 
-      originalPrice: 2499, 
-      discount: 28, 
-      imageUrl: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3',
-      category: 'HomeKitchen'
+      name: 'Food Processor', 
+      price: 2499, 
+      originalPrice: 3499, 
+      discount: 29, 
+      image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3',
+      category: 'Home & Kitchen'
     },
     { 
       _id: '5', 
-      name: 'Professional Chef Knife Set', 
-      price: 3499, 
-      originalPrice: 4999, 
-      discount: 30, 
-      imageUrl: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3',
-      category: 'HomeKitchen'
+      name: 'Dinnerware Set', 
+      price: 1499, 
+      originalPrice: 1999, 
+      discount: 25, 
+      image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3',
+      category: 'Home & Kitchen'
     },
     { 
       _id: '6', 
-      name: 'Glass Storage Jars (Set of 6)', 
-      price: 799, 
-      originalPrice: 1199, 
+      name: 'Kitchen Scale', 
+      price: 999, 
+      originalPrice: 1499, 
       discount: 33, 
-      imageUrl: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?ixlib=rb-4.0.3',
-      category: 'HomeKitchen'
+      image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3',
+      category: 'Home & Kitchen'
     }
   ];
 
@@ -66,7 +66,7 @@ const HomeKitchen = ({ onAddToCart }) => {
       _id: product._id,
       name: product.name,
       price: product.price,
-      imageUrl: product.imageUrl,
+      image: product.image,
       quantity: 1
     });
   };
@@ -96,7 +96,7 @@ const HomeKitchen = ({ onAddToCart }) => {
       <div className="homekitchen-grid">
         {sortedProducts.map(product => (
           <div key={product._id} className="homekitchen-card">
-            <img src={product.imageUrl} alt={product.name} className="homekitchen-image" />
+            <img src={product.image} alt={product.name} className="homekitchen-image" />
             <h3 className="homekitchen-name">{product.name}</h3>
             <div className="homekitchen-price-row">
               <span className="homekitchen-price">₹{product.price}</span>

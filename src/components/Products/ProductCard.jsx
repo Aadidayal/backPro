@@ -81,13 +81,13 @@ const ProductCard = ({ product, onAddToCart }) => {
 
         <div className="flex items-center gap-4 mb-4">
           <div className="flex items-center border rounded">
-            <button
+          <button 
               className="px-3 py-1 hover:bg-gray-100"
               onClick={() => setQuantity(Math.max(1, quantity - 1))}
               disabled={quantity <= 1}
-            >
-              -
-            </button>
+          >
+            -
+          </button>
             <input
               type="number"
               min="1"
@@ -95,16 +95,16 @@ const ProductCard = ({ product, onAddToCart }) => {
               onChange={handleQuantityChange}
               className="w-12 text-center border-x py-1 focus:outline-none"
             />
-            <button
+          <button 
               className="px-3 py-1 hover:bg-gray-100"
-              onClick={() => setQuantity(quantity + 1)}
-            >
-              +
-            </button>
-          </div>
+            onClick={() => setQuantity(quantity + 1)}
+          >
+            +
+          </button>
+        </div>
         </div>
 
-        <button
+        <button 
           className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           onClick={handleAddToCart}
           disabled={isLoading}

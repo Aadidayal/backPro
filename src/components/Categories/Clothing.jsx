@@ -11,7 +11,7 @@ const Clothing = ({ onAddToCart }) => {
       price: 999, 
       originalPrice: 1499, 
       discount: 33, 
-      imageUrl: 'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?ixlib=rb-4.0.3',
       category: 'Clothing'
     },
     { 
@@ -20,7 +20,7 @@ const Clothing = ({ onAddToCart }) => {
       price: 1499, 
       originalPrice: 1999, 
       discount: 25, 
-      imageUrl: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3',
       category: 'Clothing'
     },
     { 
@@ -29,7 +29,7 @@ const Clothing = ({ onAddToCart }) => {
       price: 2999, 
       originalPrice: 3999, 
       discount: 25, 
-      imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3',
       category: 'Clothing'
     },
     { 
@@ -38,7 +38,7 @@ const Clothing = ({ onAddToCart }) => {
       price: 3999, 
       originalPrice: 4999, 
       discount: 20, 
-      imageUrl: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3',
       category: 'Clothing'
     },
     { 
@@ -47,7 +47,7 @@ const Clothing = ({ onAddToCart }) => {
       price: 4999, 
       originalPrice: 5999, 
       discount: 17, 
-      imageUrl: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3',
       category: 'Clothing'
     },
     { 
@@ -56,7 +56,7 @@ const Clothing = ({ onAddToCart }) => {
       price: 1999, 
       originalPrice: 2499, 
       discount: 20, 
-      imageUrl: 'https://images.unsplash.com/photo-1577803645773-f96470509666?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1577803645773-f96470509666?ixlib=rb-4.0.3',
       category: 'Clothing'
     }
   ];
@@ -66,7 +66,7 @@ const Clothing = ({ onAddToCart }) => {
       _id: product._id,
       name: product.name,
       price: product.price,
-      imageUrl: product.imageUrl,
+      image: product.image,
       quantity: 1
     });
   };
@@ -96,7 +96,7 @@ const Clothing = ({ onAddToCart }) => {
       <div className="clothing-grid">
         {sortedProducts.map(product => (
           <div key={product._id} className="clothing-card">
-            <img src={product.imageUrl} alt={product.name} className="clothing-image" />
+            <img src={product.image} alt={product.name} className="clothing-image" />
             <h3 className="clothing-name">{product.name}</h3>
             <div className="clothing-price-row">
               <span className="clothing-price">₹{product.price}</span>

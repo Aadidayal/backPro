@@ -42,14 +42,14 @@ router.post('/add', authenticateToken, async (req, res) => {
           productId: _id,
           name: name,
           price: price,
-          imageUrl: imageUrl,
+          image: imageUrl,
           quantity: quantity,
           addedAt: new Date(),
           lastUpdatedAt: new Date()
         }]
       });
     } else {
-      const existingItem = cart.items.find(item => item.productId.toString() === _id);
+      const existingItem = cart.items.find(item => item.productId === _id);
       if (existingItem) {
         existingItem.quantity += quantity;
         existingItem.lastUpdatedAt = new Date();
@@ -58,7 +58,7 @@ router.post('/add', authenticateToken, async (req, res) => {
           productId: _id,
           name: name,
           price: price,
-          imageUrl: imageUrl,
+          image: imageUrl,
           quantity: quantity,
           addedAt: new Date(),
           lastUpdatedAt: new Date()
@@ -91,14 +91,15 @@ router.delete('/remove/:productId', authenticateToken, async (req, res) => {
       return res.status(404).json({ message: 'Cart not found' });
     }
 
-    const itemIndex = cart.items.findIndex(item => item.productId.toString() === req.params.productId);
+    const itemIndex = cart.items.findIndex(item => item.productId === req.params.productId);
     if (itemIndex === -1) {
       return res.status(404).json({ message: 'Item not found in cart' });
     }
 
+    const removedItem = cart.items[itemIndex];
     cart.items.splice(itemIndex, 1);
     await cart.save();
-    
+
     // Return the updated cart
     const updatedCart = await Cart.findOne({ userId: req.user.userId });
     res.json({
@@ -112,20 +113,17 @@ router.delete('/remove/:productId', authenticateToken, async (req, res) => {
   }
 });
 
-// Update cart item quantity
+// Update item quantity
 router.put('/update/:productId', authenticateToken, async (req, res) => {
   try {
     const { quantity } = req.body;
-    if (!quantity || quantity < 1) {
-      return res.status(400).json({ message: 'Valid quantity is required' });
-    }
-
     const cart = await Cart.findOne({ userId: req.user.userId });
+
     if (!cart) {
       return res.status(404).json({ message: 'Cart not found' });
     }
 
-    const item = cart.items.find(item => item.productId.toString() === req.params.productId);
+    const item = cart.items.find(item => item.productId === req.params.productId);
     if (!item) {
       return res.status(404).json({ message: 'Item not found in cart' });
     }
@@ -133,12 +131,36 @@ router.put('/update/:productId', authenticateToken, async (req, res) => {
     item.quantity = quantity;
     item.lastUpdatedAt = new Date();
     await cart.save();
-    
-    console.log(`User ${req.user.userId} updated quantity of product ${req.params.productId} to ${quantity}`);
-    res.json(cart);
+
+    // Return the updated cart
+    const updatedCart = await Cart.findOne({ userId: req.user.userId });
+    res.json({
+      items: updatedCart.items,
+      totalItems: updatedCart.totalItems,
+      totalPrice: updatedCart.totalPrice
+    });
   } catch (error) {
     console.error('Error updating cart:', error);
     res.status(500).json({ message: 'Error updating cart', error: error.message });
+  }
+});
+
+// Clear cart
+router.delete('/clear', authenticateToken, async (req, res) => {
+  try {
+    const cart = await Cart.findOne({ userId: req.user.userId });
+
+    if (!cart) {
+      return res.status(404).json({ message: 'Cart not found' });
+    }
+
+    cart.items = [];
+    await cart.save();
+
+    res.json({ message: 'Cart cleared successfully' });
+  } catch (error) {
+    console.error('Error clearing cart:', error);
+    res.status(500).json({ message: 'Error clearing cart', error: error.message });
   }
 });
 

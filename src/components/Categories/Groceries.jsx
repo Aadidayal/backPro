@@ -11,7 +11,7 @@ const Groceries = ({ onAddToCart }) => {
       price: 199, 
       originalPrice: 249, 
       discount: 20, 
-      imageUrl: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-4.0.3',
       category: 'Groceries'
     },
     { 
@@ -20,7 +20,7 @@ const Groceries = ({ onAddToCart }) => {
       price: 99, 
       originalPrice: 129, 
       discount: 23, 
-      imageUrl: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3',
       category: 'Groceries'
     },
     { 
@@ -29,7 +29,7 @@ const Groceries = ({ onAddToCart }) => {
       price: 45, 
       originalPrice: 60, 
       discount: 25, 
-      imageUrl: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3',
       category: 'Groceries'
     },
     { 
@@ -38,7 +38,7 @@ const Groceries = ({ onAddToCart }) => {
       price: 89, 
       originalPrice: 99, 
       discount: 10, 
-      imageUrl: 'https://images.unsplash.com/photo-1587486913049-53fc88980cfc?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1587486913049-53fc88980cfc?ixlib=rb-4.0.3',
       category: 'Groceries'
     },
     { 
@@ -47,7 +47,7 @@ const Groceries = ({ onAddToCart }) => {
       price: 129, 
       originalPrice: 149, 
       discount: 13, 
-      imageUrl: 'https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-4.0.3',
       category: 'Groceries'
     },
     { 
@@ -56,7 +56,7 @@ const Groceries = ({ onAddToCart }) => {
       price: 399, 
       originalPrice: 499, 
       discount: 20, 
-      imageUrl: 'https://images.unsplash.com/photo-1594282406314-6312a4bf6a1b?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1594282406314-6312a4bf6a1b?ixlib=rb-4.0.3',
       category: 'Groceries'
     }
   ];
@@ -66,7 +66,7 @@ const Groceries = ({ onAddToCart }) => {
       _id: product._id,
       name: product.name,
       price: product.price,
-      imageUrl: product.imageUrl,
+      image: product.image,
       quantity: 1
     });
   };
@@ -96,7 +96,7 @@ const Groceries = ({ onAddToCart }) => {
       <div className="groceries-grid">
         {sortedProducts.map(product => (
           <div key={product._id} className="groceries-card">
-            <img src={product.imageUrl} alt={product.name} className="groceries-image" />
+            <img src={product.image} alt={product.name} className="groceries-image" />
             <h3 className="groceries-name">{product.name}</h3>
             <div className="groceries-price-row">
               <span className="groceries-price">₹{product.price}</span>

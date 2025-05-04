@@ -11,7 +11,7 @@ const Electronics = ({ onAddToCart }) => {
       price: 4999,
       originalPrice: 7999,
       discount: 38,
-      imageUrl: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3',
       category: 'Electronics'
     },
     {
@@ -20,7 +20,7 @@ const Electronics = ({ onAddToCart }) => {
       price: 3999,
       originalPrice: 5999,
       discount: 33,
-      imageUrl: 'https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixlib=rb-4.0.3',
       category: 'Electronics'
     },
     {
@@ -29,7 +29,7 @@ const Electronics = ({ onAddToCart }) => {
       price: 1999,
       originalPrice: 2999,
       discount: 33,
-      imageUrl: 'https://images.unsplash.com/photo-1606220588911-5117e7648a6a?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1606220588911-5117e7648a6a?ixlib=rb-4.0.3',
       category: 'Electronics'
     },
     {
@@ -38,7 +38,7 @@ const Electronics = ({ onAddToCart }) => {
       price: 2999,
       originalPrice: 4499,
       discount: 33,
-      imageUrl: 'https://images.unsplash.com/photo-1606220588911-5117e7648a6a?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1606220588911-5117e7648a6a?ixlib=rb-4.0.3',
       category: 'Electronics'
     },
     {
@@ -47,7 +47,7 @@ const Electronics = ({ onAddToCart }) => {
       price: 12999,
       originalPrice: 15999,
       discount: 19,
-      imageUrl: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?ixlib=rb-4.0.3',
       category: 'Electronics'
     },
     {
@@ -56,7 +56,7 @@ const Electronics = ({ onAddToCart }) => {
       price: 24999,
       originalPrice: 29999,
       discount: 17,
-      imageUrl: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3',
+      image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3',
       category: 'Electronics'
     }
   ];
@@ -66,7 +66,7 @@ const Electronics = ({ onAddToCart }) => {
       _id: product._id,
       name: product.name,
       price: product.price,
-      imageUrl: product.imageUrl,
+      image: product.image,
       quantity: 1
     });
   };
@@ -96,7 +96,7 @@ const Electronics = ({ onAddToCart }) => {
       <div className="electronics-grid">
         {sortedProducts.map(product => (
           <div key={product._id} className="electronics-card">
-            <img src={product.imageUrl} alt={product.name} className="electronics-image" />
+            <img src={product.image} alt={product.name} className="electronics-image" />
             <h3 className="electronics-name">{product.name}</h3>
             <div className="electronics-price-row">
               <span className="electronics-price">₹{product.price}</span>
